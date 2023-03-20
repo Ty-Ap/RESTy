@@ -1,4 +1,16 @@
-$backgroundColor: #f5f5f5;
+
+
+
+
+
+$spookyBlue: #0c234f;
+$chillBlue: #226077;
+$highlight: #e6a200;
+$greenBlue: #54d8a7;
+$pale: #addfba;
+
+
+
 
 html, body {
   height: 100%;
@@ -7,7 +19,8 @@ html, body {
 }
 
 body {
-  background: $backgroundColor;
+  background: $spookyBlue;
+  color: $highlight;
   height: 100%;
 
   #root {
@@ -17,16 +30,16 @@ body {
   }
 
   footer {
-    background: darken($backgroundColor, 50);
+    background: darken($spookyBlue, 50);
     border-top: 1px solid #eee;
     padding: 1em 3em;
     margin: 0;
   }
 
   header {
-    background: darken($backgroundColor, 75);
+    background: darken($spookyBlue, 75);
     border-bottom: 1px solid #eee;
-    color: #eee;
+    color: $greenBlue;
     padding: 0;
     margin: 0;
     text-align: center;
