@@ -1,9 +1,9 @@
-import React from 'react';
+import LoadingIndicator from '../Loader';
 
 const Results = (props) => {
   return (
     <section>
-      <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+      <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : LoadingIndicator()}</pre>
     </section>
   );
 }
