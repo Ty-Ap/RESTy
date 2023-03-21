@@ -2,6 +2,8 @@
 
 this is practice using React.
 ![uml](../assets/class-26-401d51.png)
+![uml](../assets/class-27-401d51.png)
+
 TODO:
 
 - convert all class components to functions, keep functionality. ✔️
