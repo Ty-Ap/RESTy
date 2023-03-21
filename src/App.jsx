@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import axios from 'axios';
 
 import './App.scss'; //componentize this after get route is done
 
@@ -14,17 +15,18 @@ function App(){
   const [data, setData] = useState(null);
   const [requestParams, setRequestParams] = useState({});
 
-  const callApi = (requestParams) => {
-    // mock output
-    const data = {
-      count: 2,
-      results: [
-        {name: 'fake thing 1', url: 'http://fakethings.com/1'},
-        {name: 'fake thing 2', url: 'http://fakethings.com/2'},
-      ],
-    };
-    setData(data)
-    setRequestParams(requestParams);
+  const callApi = async (requestParams) => {
+    try {
+      const response = await axios.get(requestParams.url);
+      console.log('Response data:', response.data);
+      const {id,name,sprites,stats} = response.data;
+      const pokemonData = {id,name,stats,sprites};
+      setData(pokemonData);
+      setRequestParams(requestParams);
+      console.log('Pokemon data:', pokemonData);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
     return (
