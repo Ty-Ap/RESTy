@@ -1,10 +1,12 @@
 import LoadingIndicator from '../Loader';
+import JSONPretty from 'react-json-pretty';
+import 'react-json-pretty/themes/monikai.css';
 
-const Results = (props) => {
-  if (!props.data){
+const Results = ({headers,data}) => {
+  if (!data){
     return LoadingIndicator();
   }
-  const {id,name,sprites} = props.data;
+  const {id,name,sprites} = data;
   const spriteKeys = Object.keys(sprites);
   const spriteUrls = spriteKeys.slice(0,5).map((key)=> sprites[key]);
 
@@ -17,10 +19,14 @@ const Results = (props) => {
           <img key={index} src={url} alt={`Sprite ${index + 1}`} />
         ))}
       </div>
+      <h4>Headers:</h4>
+      <JSONPretty id="json-pretty-headers" data={headers}></JSONPretty>
       ========leaving this here because instructions say to==========
-      
-      <pre>{JSON.stringify(props.data, undefined, 2)}</pre>
-    </section>
+
+     {/* display results */}
+     <h5>Results:</h5>
+      <JSONPretty id="json-pretty-results" data={data}></JSONPretty>
+     </section>
   );
 }
 
